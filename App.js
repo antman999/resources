@@ -113,22 +113,36 @@
 
 // export default App;
 
-import React from 'react';
+import React, { Component } from 'react';
 import {Text, View, StyleSheet} from 'react-native';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 const styles = StyleSheet.create({
-  first: {
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
+  map: {
+    height: '100%',
+  },
 });
 
-const App = () => {
-  return (
-    <View style={styles.first}>
-      <Text>Hello, world!</Text>
-    </View>
+class App extends Component{
+  render(){
+    return (
+        <MapView
+        provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+        style={{flex:1}}
+        region={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.09,
+          longitudeDelta: 0.035,
+        }}>
+        </MapView>
+    
   );
+  }
 };
 export default App;
