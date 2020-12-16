@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
+import {NavigationContainer, DefaultTheme, DarkTheme} from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from "./HomeScreen";
 import Map from './Map'
@@ -9,11 +9,21 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 const Tab = createBottomTabNavigator();
 
+const MyTheme = {
+  ...DarkTheme,
+  colors: {
+    ...DarkTheme.colors,
+    primary: 'rgb(255, 45, 85)',
+    background: 'rgb(242, 242, 242)',
+    notification: 'rgb(255, 69, 58)',
+  },
+};
+
 class App extends Component{
   render(){
     return (
       <>
-        <NavigationContainer>
+        <NavigationContainer theme={MyTheme}>
           <Tab.Navigator>
             <Tab.Screen
               name="Home"
@@ -29,7 +39,20 @@ class App extends Component{
                 ),
               }}
             />
-            <Tab.Screen name="Map" component={Map} />
+            <Tab.Screen
+              name="Map"
+              component={Map}
+              options={{
+                tabBarLabel: 'Map',
+                tabBarIcon: ({color, size}) => (
+                  <MaterialCommunityIcons
+                    name="google-maps"
+                    color={color}
+                    size={size}
+                  />
+                ),
+              }}
+            />
           </Tab.Navigator>
         </NavigationContainer>
       </>
