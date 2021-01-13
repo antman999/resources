@@ -1,4 +1,5 @@
 {
   "name": "resources",
-  "displayName": "resources"
+  "displayName": "resources",
+  "orientation":"portrait"
 }
