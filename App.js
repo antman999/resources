@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import {NavigationContainer, DefaultTheme, DarkTheme} from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from "./HomeScreen";
+import HomeScreen from "../resources/app/HomeScreen";
 import Map from './Map'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -23,7 +23,15 @@ class App extends Component{
   render(){
     return (
       <>
-        <NavigationContainer theme={MyTheme}>
+        <HomeScreen/>
+      </>
+    );
+  }
+};
+export default App;
+
+ /*
+     <NavigationContainer theme={MyTheme}>
           <Tab.Navigator>
             <Tab.Screen
               name="Home"
@@ -55,8 +63,4 @@ class App extends Component{
             />
           </Tab.Navigator>
         </NavigationContainer>
-      </>
-    );
-  }
-};
-export default App;
+ */
