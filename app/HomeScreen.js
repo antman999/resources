@@ -9,41 +9,40 @@ import {
   Image,
 } from 'react-native';
 import ImageBackground from 'react-native/Libraries/Image/ImageBackground';
+import AppButtons from './components/AppButtons';
 
 const HomeScreen = () => (
-  <ImageBackground style={styles.image} source={require('./assets/nycdark.jpg')}>
-    <Image style={styles.logo }source = {require('./assets/logo.png')}  /> 
-    <View style={styles.login}></View>
-    <View style={styles.signup}></View>
+  <ImageBackground
+    style={styles.image}
+    source={require('./assets/nycdark.jpg')}>
+    <Image style={styles.logo} source={require('./assets/logo.png')} />
+    <View style={styles.welcomeContainer}>
+      <AppButtons title="Log in" onPress={() => console.log('nice')} />
+      <AppButtons title="Sign Up" onPress={() => console.log('nice')} />
+    </View>
   </ImageBackground>
 );
+
+  
 
 const styles = StyleSheet.create({
   image: {
     flex: 1,
-    resizeMode: 'cover',
     justifyContent: 'flex-end',
-    alignItems:'center'
-  },
-  login: {
-    width: '100%',
-    height: 60,
-    backgroundColor: '#03dac5',
-  },
-
-  signup: {
-    width: '100%',
-    height: 70,
-    backgroundColor: '#3700B3',
+    alignItems: 'center',
   },
   logo: {
     width: 320,
     height: 220,
     position: 'absolute',
-    top: 200
+    top: 200,
+  },
+  welcomeContainer: {
+    padding: 20,
+    width: "100%"
   }
+
 });
 
-  
 
 export default HomeScreen
