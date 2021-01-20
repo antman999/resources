@@ -6,6 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from "../resources/app/HomeScreen";
 import Map from './Map'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Card from './app/Card';
 
 const Tab = createBottomTabNavigator();
 
@@ -22,9 +23,18 @@ const MyTheme = {
 class App extends Component{
   render(){
     return (
-      <>
-        <HomeScreen />
-      </>
+      // <>
+      //   {/* <HomeScreen /> */}
+
+      // </>
+
+      <View style={{backgroundColor: '#191F2B', padding: 20, paddingTop: 100}}>
+        <Card
+          title="Red"
+          subTitle="Queens,NY"
+          image={require("./app/assets/nyc.jpg")}
+        />
+      </View>
     );
   }
 };

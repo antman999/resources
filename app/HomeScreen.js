@@ -9,15 +9,17 @@ import {
   Image,
 } from 'react-native';
 import ImageBackground from 'react-native/Libraries/Image/ImageBackground';
+import Card from './Card';
 import AppButtons from './components/AppButtons';
 
 const HomeScreen = () => (
   <ImageBackground
+    blurRadius={7}
     style={styles.image}
     source={require('./assets/nycdark.jpg')}>
     <Image style={styles.logo} source={require('./assets/logo.png')} />
     <View style={styles.welcomeContainer}>
-      <AppButtons title="Log in" onPress={() => console.log('nice')} />
+      <AppButtons title="Log in" onPress={() => <Card/>} />
       <AppButtons title="Sign Up" onPress={() => console.log('nice')} />
     </View>
   </ImageBackground>
